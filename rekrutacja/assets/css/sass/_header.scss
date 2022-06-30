@@ -1,0 +1,58 @@
+@import './variables';
+@mixin bg($param) {
+    background-image: url($param);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+        color: $header-font;
+    a{
+        color: $header-font;
+        text-decoration: none;
+    }
+    .page-bg{
+        @include bg('../../images/forest.jpg');
+    }
+    .primary-navigation{
+        position: relative;
+        z-index: 1;
+    }
+    .menu-wrapper{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style-type: none;
+        padding: 40px 0 80px;
+        li a{
+            font-weight: 700;
+            padding: 0 20px;
+            line-height: 18px;
+            font-size: 15px;
+            &:hover{
+                color: $hover-font;
+            }
+        }
+        .current_page_item a{
+            color: $hover-font;
+        }
+    }
+    .banner{
+        text-align: center;
+        padding: 63px 0 125px;
+        h2{
+            margin-bottom: 13px;
+        }
+    }
+    .banner-gradient{ 
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+        position: absolute;
+        background: linear-gradient(180deg, #333333 0%, rgba(51, 51, 51, 0) 100%);
+        background-blend-mode: overlay;
+        z-index: -1;
+    }
+}
+

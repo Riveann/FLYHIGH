@@ -1,0 +1,403 @@
+@import './variables';
+@import './header';
+
+
+@mixin fonts($param, $param2, $param3){
+    font-size: $param;
+    line-height: $param2;
+    font-weight: $param3;
+}
+
+@mixin flex(){
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    color: $body-font;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+h2{
+    @include fonts(48px, 58px, 700);
+   
+}
+h3{
+    @include fonts(20px, 24px, 700);
+    
+}
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.container1330{
+    max-width: 1330px;
+    margin: 0 auto;
+}
+.first-home{
+    margin: 100px 0 50px;
+    .header-section{
+        margin: 0 auto;
+        max-width: 955px;
+        text-align: center;
+        h2{
+            @include fonts(32px, 39px, 600);
+        }
+    }
+}
+.desc{
+    @include fonts(20px, 36px, 400);
+    text-align: center;
+    margin-bottom: 33px;
+}
+.color-row{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    cursor: url(../../images/union.svg), auto;
+    &:hover .wheel{
+        transform: rotate(360deg);
+        transition-duration: 2000ms;
+    }
+    &:hover .wheel-in{
+        transform: none;
+        transition-duration: 1ms;
+    }
+}
+.color-boxes{
+    @include fonts(16px, 24px, 400);
+    color: $boxes;
+    display: grid;
+    max-width: 100%;
+    margin: 10px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 33px;
+    padding: 47px 35px 67px 76px;
+    h3{
+        @include fonts(20px, 36px, 600);
+    }
+    &:hover{
+        transform: scale(1.01);
+        transition-duration: 100ms;
+    }
+   
+}
+.color-box1{
+    h3{
+        color: $color-box1;
+    }
+    cursor: url(../../images/union-blue.svg), auto;
+    p{
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            @include bg('../../images/tick.svg');
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+.color-box2{
+    h3{
+        color: $color-box2;
+    }
+    cursor: url(../../images/union-green.svg), auto;
+    p{
+        &::before{
+            @include bg('../../images/tick2.svg');
+        }
+    }
+    @extend .color-box1;
+}
+.color-box3{
+    h3{
+        color: $color-box3;
+    }
+    cursor: url(../../images/union-yellow.svg), auto;
+    p{
+        &::before{
+            @include bg('../../images/tick3.svg');
+        }
+    }
+    @extend .color-box1;
+}
+.color-box4{
+    h3{
+        color: $color-box4;
+    }
+    cursor: url(../../images/union-red.svg), auto;
+    p{
+        &::before{
+            @include bg('../../images/tick4.svg');
+        }
+    }
+    @extend .color-box1;
+}
+.wheel{
+    position: absolute;
+    width: 193px;
+    height: 187px;
+    left: 0; 
+    right: 0; 
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.01);
+    @include bg('../../images/circle-arrow.svg');
+    background-size: 90%;
+    background-position: center;
+}
+.wheel-in{
+    @extend .wheel;
+    width: 120px;
+    height: 120px;
+    background-color: $wheel-in;
+    background-image: none;
+    @include fonts(16px, 20px, 700);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.carousel{
+    margin: 142px 0 200px;
+    h2{
+        padding: 108px 0 67px;
+        @include fonts(36px, 43px, 600);
+        text-align: center;
+    }
+    .carousel-main{
+        background-color: $carousel;
+        h4{
+            padding-left: 40px;
+        }
+        ul{
+            margin: 0;
+        }
+        li{
+            line-height: 30px;
+        }
+        ::marker{
+            font-size: 12px;
+        }
+    }
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 68px;
+    padding-bottom: 85px;
+    .left-button{
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        @include bg('../../images/arrow-grey.svg');
+    }
+    .right-button{
+        @extend .left-button;
+        margin-left: 7px;
+        @include bg('../../images/arrow-green.svg');
+       
+    }
+}
+.inline{
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    h3{
+        margin-left: 25px;
+        color:$color-box4;
+        @include fonts(20px, 30px, 600)
+    }
+}
+.app{
+    @include flex();
+    margin: 15px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    .left-app-wrap{
+        background-color: $left-app;
+        max-width: 86px;
+        padding: 0 15px;
+        border-radius: 5px 0 0 5px;
+      
+        .shapes-cont{
+            @include flex();
+            padding-top: 16px;
+            margin-bottom: 31px;
+        }
+        .squares-cont{
+            @include flex();
+            justify-content: flex-start;
+            margin-bottom: 6px;
+        }
+        .circle{
+            margin: 1.5px;
+            border-radius: 50%;
+            width: 9px;
+            height: 9px;
+            background-color: $left-app-shapes;
+        }
+        .square-middle{
+            width: 28px;
+            margin: 1px;
+            height: 9px;
+            border-radius: 25px;
+            background-color: $left-app-shapes;
+        }
+        .square-short{
+            @extend .square-middle;
+            width: 17px;
+        }
+        .square-long{
+            @extend .square-middle;
+            width: 36px;
+        }
+    }
+    .right-app{
+        @include flex();
+        padding-top: 35px;
+        background-color: $right-app;
+        padding-right: 15px;
+        margin-bottom: 25px;
+        
+    }
+    p{
+        @include fonts(7px, 9px, 600)
+    }
+    span{
+        @include fonts(7px, 9px, 700)
+    }
+    .companies{
+        background-color: $companies;
+        border-radius: 5px;
+        height: 46px;
+        margin: 0 15px 0 8px;
+        padding: 0 7px;
+    }
+    .app-box{
+        display: flex;
+        height: 46px;
+        box-sizing: border-box;
+    }
+    
+    .app-box-2{
+        background-color: $right-app-green;
+        color: $diagram;
+        padding: 0 7px;
+        box-sizing: border-box;
+       
+        width: 49px;
+    }
+    .app-box-1{
+        background-color: $right-app-gray;
+        border-radius: 5px 0 0 5px;
+        color: $body-font;
+        @extend .app-box-2;
+        
+    }
+    .app-box-3{
+        background-color: $right-app-yellow;
+        color: $diagram;
+        width: 87px;
+        @extend .app-box-2;
+    }
+    .app-box-4{
+        background-color: $right-app-red;
+        color: $diagram;
+        width: 153px;
+        border-radius: 0 5px 5px 0;
+        @extend .app-box-2;
+    }
+    
+}
+
+.app1{
+    display: flex;
+    .text-app{
+       margin: 15px 0 15px 40px;
+    }
+    .row{
+        display: flex;
+        align-items: center;
+        background-color: $companies;
+        border-radius: 5px;
+        height: 35px;
+        margin: 0 15px 8px;
+        
+    }
+    .row .square-long{
+        width: 40px;
+            margin: 1px;
+            height: 7px;
+            border-radius: 25px;
+            background-color: $chart;
+    }
+    .row .x{
+        width: 56px;
+    }
+    .row .xx{
+        width: 25px;
+    }
+    .row .circle{
+        border: 5px solid $chart;  
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        margin-right: 5px;
+
+    }
+    .quarter{
+        flex: 1 0 18%;
+        max-width: 18%;
+        text-align: center;
+      
+    }
+    .numbers{
+        @include fonts(7px, 7px, 600)
+    }
+    .transform{
+        text-transform: uppercase;
+        @include fonts(7px, 7px, 600);
+        color: $chart;
+    }
+    .first-a{
+        display: flex;
+        align-items: center;
+        margin-left: 12px;
+    }
+    .red{
+        color: $right-app-red;
+    }
+    .green{
+        color: $right-app-green;
+    }
+    .btn-main{
+        max-width: 28%;
+        flex: 1 0 28%;
+        .btn{
+            border: 1.5px solid $hover-font;
+            text-decoration: none;
+            border-radius: 5px;
+            color: $hover-font;
+            padding: 5px 7px;
+            @include fonts(7px, 7px, 600);
+            &:hover{
+                color: $diagram;
+                background-color: $hover-font;
+            }
+        }
+    }
+}
